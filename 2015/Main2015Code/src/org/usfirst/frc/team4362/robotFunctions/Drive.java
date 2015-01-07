@@ -11,9 +11,13 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- * @author Joshua Arking
- *
+ * @author Dustin Newman (Original)
+ * @author Joshua Arking (Integration)
  */
+/** Objectives and formatting - 
+ *  This class will contain the relevant code to driving in each of the four functions. Objectives are to execute 
+ *  autonomous mode, provide drivers with complete control over driving, and provide programmers useful testing information.
+ */ 
 public class Drive {
 
 		// main robot drive setup

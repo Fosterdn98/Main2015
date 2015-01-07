@@ -9,6 +9,10 @@ package org.usfirst.frc.team4362.robotHardware;
  * @author Joshua Arking
  *
  */
+/** Objectives and formatting - 
+ *  This class will contain the relevant code to output to the driverstation in each of the four main functions, with secondary 
+ *  functions managing the actual logging and updating the smartdashboard.
+ */ 
 public class Driverstation {
 	public void auton() {
 		   
