@@ -14,6 +14,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *  This class will contain the relevant code to monitor and control the RoboRio in each of the four main functions. Objective is to
  *  provide a class for easily interfacing and controlling the RoboRio, especially on the CAN bus.
  */ 
+/** To do list - 
+ *  Check WPIlib documents to see if there's more values that could possibly be useful. 
+ */ 
 public class Roborio {
 	public void auton() {
 	   

@@ -16,6 +16,9 @@ import edu.wpi.first.wpilibj.IterativeRobot;
  *  This class will be laid out such that each function will only contain the execution method for classes in the robotFunctions and
  *  robotHardware packages. The objective here is to make our program more modular, improve ease to debug, and minimize req resources.
  */ 
+/** To do list - 
+ *  Add functions as necessary. 
+ */ 
 public class Robot extends IterativeRobot {
     /**
      * This function is run when the robot is first started up and should be

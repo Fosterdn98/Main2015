@@ -18,6 +18,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *  This class will contain the relevant code to driving in each of the four functions. Objectives are to execute 
  *  autonomous mode, provide drivers with complete control over driving, and provide programmers useful testing information.
  */ 
+/** To do list - 
+ *  Verify this code is working, has not been tested yet.
+ */ 
 public class Drive {
 
 		// main robot drive setup
