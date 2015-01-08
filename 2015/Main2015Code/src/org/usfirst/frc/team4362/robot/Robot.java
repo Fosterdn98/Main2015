@@ -5,19 +5,11 @@ import org.usfirst.frc.team4362.robotFunctions.Drive;
 import org.usfirst.frc.team4362.robotHardware.Roborio;
 import edu.wpi.first.wpilibj.IterativeRobot;
 
-/**
- * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the IterativeRobot
- * documentation. If you change the name of this class or the package after
- * creating this project, you must also update the manifest file in the resource
- * directory.
- */
-/** Objectives and formatting - 
+/** <P><B>Objectives and formatting</B></P> - 
  *  This class will be laid out such that each function will only contain the execution method for classes in the robotFunctions and
  *  robotHardware packages. The objective here is to make our program more modular, improve ease to debug, and minimize req resources.
  */ 
-/** To do list - 
- *  Add functions as necessary. 
+/** <P><B>To do list</B></P> - Add functions as necessary. 
  */ 
 public class Robot extends IterativeRobot {
     /**
