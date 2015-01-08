@@ -5,11 +5,11 @@ import org.usfirst.frc.team4362.robotFunctions.Drive;
 import org.usfirst.frc.team4362.robotHardware.Roborio;
 import edu.wpi.first.wpilibj.IterativeRobot;
 
-/** <P><B>Objectives and formatting</B></P> - 
+/** @b Objectives and formatting - 
  *  This class will be laid out such that each function will only contain the execution method for classes in the robotFunctions and
  *  robotHardware packages. The objective here is to make our program more modular, improve ease to debug, and minimize req resources.
  */ 
-/** <P><B>To do list</B></P> - Add functions as necessary. 
+/** @b To do list - Add functions as necessary. 
  */ 
 public class Robot extends IterativeRobot {
     /**

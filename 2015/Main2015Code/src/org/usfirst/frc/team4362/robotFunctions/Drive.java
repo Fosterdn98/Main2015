@@ -14,11 +14,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author Dustin Newman (Original)
  * @author Joshua Arking (Integration)
  */
-/** <P><B>Objectives and formatting</B></P> - 
+/** @b Objectives and formatting - 
  *  This class will contain the relevant code to driving in each of the four functions. Objectives are to execute 
  *  autonomous mode, provide drivers with complete control over driving, and provide programmers useful testing information.
  */ 
-/** <P><B>To do list</B></P> - Verify this code is working, has not been tested yet.
+/** @b To do list - Verify this code is working, has not been tested yet.
  */ 
 public class Drive {
 
