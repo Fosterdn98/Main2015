@@ -111,6 +111,11 @@ public class Drive {
 		 * This function is called periodically during autonomous
 		 */
 		public void auton() {
+			//!robot drives forward at fill speed for given time
+			for(int i; i>100; i++){
+				tankChassis.drive(100,0);
+			}
+			tankChassis.drive(0,0);
 
 		}
 
