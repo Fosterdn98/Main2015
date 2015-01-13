@@ -8,8 +8,10 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.TalonSRX;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team4362.robotHardware.Talonsrx.*;
 /**
  * @author Dustin Newman (Original)
  * @author Joshua Arking (Integration)
@@ -38,7 +40,7 @@ public class Drive {
 		Talon leftBack;
 		Talon rightFront;
 		Talon rightBack;
-
+		
 		// Count vars.
 		int count;
 
@@ -130,18 +132,12 @@ public class Drive {
 
 			// reads button to set gear shift boolean to true or false
 			if (V_LEFTHIGHLOW) {
-				V_SHIFTHIGHLOW = true;
+				shifter.set(true);
 			}
 			if (V_RIGHTHIGHLOW) {
-				V_SHIFTHIGHLOW = false;
-			}
-
-			// sets gear shifter on or off
-			if (V_SHIFTHIGHLOW) {
-				shifter.set(true);
-			} else {
 				shifter.set(false);
 			}
+
 
 			// write gear to smarth dashboard
 			//SmartDashboard.putBoolean("High Gear", SHIFTHIGHLOW);
