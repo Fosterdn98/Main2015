@@ -3,6 +3,8 @@
  */
 package org.usfirst.frc.team4362.robotHardware;
 
+import edu.wpi.first.wpilibj.Talon;
+
 /**
  * @author Joshua Arking
  *
@@ -15,16 +17,8 @@ package org.usfirst.frc.team4362.robotHardware;
  *  Figure out if we will be have any Talon SRX's this year before spending more time on this class.
  */ 
 public class Talonsrx {
-	public void auton() {
-		   
-	}
-	public void teleop() {
-		
-	}
-	public void init() {
-		   
-	}
-	public void testperiodic() {
-		   
-	}
+	public static CANTalon leftFront;
+	public static CANTalon leftBack;
+	public static CANTalon rightFront;
+	public static CANTalon rightBack;
 }
