@@ -1,156 +1,156 @@
-package org.usfirst.frc.team4362.robot;
+/**
+ * 
+ */
+package org.usfirst.frc.team4362.robotFunctions;
 
 import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.TalonSRX;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team4362.robotHardware.Talonsrx.*;
 /**
- * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the IterativeRobot
- * documentation. If you change the name of this class or the package after
- * creating this project, you must also update the manifest file in the resource
- * directory.
+ * @author Dustin Newman (Original)
+ * @author Joshua Arking (Integration)
  */
-public class Robot extends IterativeRobot {
-	/**
-	 * This function is run when the robot is first started up and should be
-	 * used for any initialization code.
-	 */
+/** Objectives and formatting - 
+ *  This class will contain the relevant code to driving in each of the four functions. Objectives are to execute 
+ *  autonomous mode, provide drivers with complete control over driving, and provide programmers useful testing information.
+ */ 
 
-	// main robot drive setup
-	private RobotDrive tankChassis;
-
-	// Talon set up
-	Talon leftFront;
-	Talon leftBack;
-	Talon rightFront;
-	Talon rightBack;
-
-	// Count vars.
-	int count;
-
+/** To do list - 
+ *  Verify this code is working, has not been tested yet.
+ */ 
+public class Drive {
 	/*
-	 * LEFTHIGHLOW && RIGHTHIGHLOW are the button booleans for the left and
-	 * right joystick SHIFTHIGHLOW false = low gear ; true = highgear
+	 * C_ = constant varibles were the number will never change while code is runing
+	 * V_ = Unconstant variables were the number will change while the code is running
+	 * all variables are all caps so that they are easier to see
+	 * init of robot element variable names are java standard when nameing comes into place
 	 */
-	boolean LEFTHIGHLOW = false;
-	boolean RIGHTHIGHLOW = false;
-	boolean SHIFTHIGHLOW = false;
 
-	// gear box high low sols.
-	Solenoid shifterLeft;
-	Solenoid shifterRight;
+		// main robot drive setup
+		private RobotDrive tankChassis;
 
-	// comprs. setup
-	private Compressor compressor;
-
-	// controller setup
-	private Joystick xbox;
-	private Joystick leftStick;
-	private Joystick rightStick;
-
-	// public static vars.
-	int SHIFTERLEFT = 2;
-	int SHIFTERRIGHT = 3;
-	int COMPRESSORPORT = 1;
-	int LEFTSTICKPORT = 1;
-	int RIGHTSTICKPORT = 2;
-	int XBOXCONTROLERPORT = 3;
-	int LEFTFRONT = 1;
-	int LEFTBACK = 2;
-	int RIGHTFRONT = 3;
-	int RIGHTBACK = 4;
-
-	// Joystick vars
-	int LEFTJOYSTICKMOVE = 2;
-	int RIGHTJOYSTICKMOVE = 2;
-	int GEARSWITCHBUTTON = 5;
-	double LEFTMOVE;
-	double RIGHTMOVE;
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see edu.wpi.first.wpilibj.IterativeRobot#robotInit()
-	 */
-	public void robotInit() {
-		// Tallon inti
-		leftFront = new Talon(LEFTFRONT);
-		leftBack = new Talon(LEFTBACK);
-		rightFront = new Talon(RIGHTFRONT);
-		rightBack = new Talon(RIGHTBACK);
+		// Talon set up
+		Talon leftFront;
+		Talon leftBack;
+		Talon rightFront;
+		Talon rightBack;
+		
+		// Count vars.
+		int count;
 
 		/*
-		 * robot tank drive function setup (left front, left rear, right front,
-		 * right rear
+		 * LEFTHIGHLOW && RIGHTHIGHLOW are the button booleans for the left and
+		 * right joystick SHIFTHIGHLOW false = low gear ; true = highgear
 		 */
-		tankChassis = new RobotDrive(leftFront, leftBack, rightFront, rightBack);
+		boolean V_LEFTHIGHLOW = false;
+		boolean V_RIGHTHIGHLOW = false;
+		public static boolean V_SHIFTHIGHLOW = false;
 
-		// robot sols. init
-		shifterLeft = new Solenoid(SHIFTERLEFT);
-		shifterRight = new Solenoid(SHIFTERRIGHT);
+		// gear box high low sols.
+		Solenoid shifter;
 
-		// comprs. inti
-		compressor = new Compressor(COMPRESSORPORT);
-		compressor.start();
+		// comprs. setup
+		private Compressor compressor;
 
-		// joy. init
-		xbox = new Joystick(XBOXCONTROLERPORT);
-		leftStick = new Joystick(LEFTSTICKPORT);
-		rightStick = new Joystick(RIGHTSTICKPORT);
-	}
+		// controller setup
+		private Joystick leftStick;
+		private Joystick rightStick;
 
-	/**
-	 * This function is called periodically during autonomous
-	 */
-	public void autonomousPeriodic() {
+		// public static vars.
+		int C_SHIFTER = 2;
+		int C_COMPRESSORPORT = 1;
+		int C_LEFTSTICKPORT = 1;
+		int C_RIGHTSTICKPORT = 2;
+		int C_LEFTFRONT = 1;
+		int C_LEFTBACK = 2;
+		int C_RIGHTFRONT = 3;
+		int C_RIGHTBACK = 4;
 
-	}
+		// Joystick vars
+		int C_LEFTJOYSTICKMOVE = 2;
+		int C_RIGHTJOYSTICKMOVE = 2;
+		int C_GEARSWITCHBUTTON = 5;
+		double V_LEFTMOVE;
+		double V_RIGHTMOVE;
 
-	/**
-	 * This function is called periodically during operator control
-	 */
-	public void teleopPeriodic() {
-		LEFTMOVE = leftStick.getRawAxis(LEFTJOYSTICKMOVE);
-		RIGHTMOVE = rightStick.getRawAxis(RIGHTJOYSTICKMOVE);
-		LEFTHIGHLOW = leftStick.getRawButton(GEARSWITCHBUTTON);
-		RIGHTHIGHLOW = rightStick.getRawButton(GEARSWITCHBUTTON);
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see edu.wpi.first.wpilibj.IterativeRobot#robotInit()
+		 */
+		public void init() {
+			// Tallon inti
+			leftFront = new Talon(C_LEFTFRONT);
+			leftBack = new Talon(C_LEFTBACK);
+			rightFront = new Talon(C_RIGHTFRONT);
+			rightBack = new Talon(C_RIGHTBACK);
 
-		// reads button to set gear shift boolean to true or false
-		if (LEFTHIGHLOW) {
-			SHIFTHIGHLOW = true;
+			/*
+			 * robot tank drive function setup (left front, left rear, right front,
+			 * right rear
+			 */
+			tankChassis = new RobotDrive(leftFront, leftBack, rightFront, rightBack);
+
+			// robot sols. init
+			shifter = new Solenoid(C_SHIFTER);
+
+			// comprs. inti
+			compressor = new Compressor(C_COMPRESSORPORT);
+			compressor.start();
+
+			// joy. init
+			leftStick = new Joystick(C_LEFTSTICKPORT);
+			rightStick = new Joystick(C_RIGHTSTICKPORT);
 		}
-		if (RIGHTHIGHLOW) {
-			SHIFTHIGHLOW = false;
+
+		/**
+		 * This function is called periodically during autonomous
+		 */
+		public void auton() {
+			//!robot drives forward at fill speed for given time
+			for(int i; i>100; i++){
+				tankChassis.drive(100,0);
+			}
+			tankChassis.drive(0,0);
+
 		}
 
-		// sets gear shifter on or off
-		if (SHIFTHIGHLOW) {
-			shifterLeft.set(true);
-			shifterRight.set(true);
-		} else {
-			shifterLeft.set(false);
-			shifterRight.set(false);
+		/**
+		 * This function is called periodically during operator control
+		 */
+		public void teleop() {
+			V_LEFTMOVE = leftStick.getRawAxis(C_LEFTJOYSTICKMOVE);
+			V_RIGHTMOVE = rightStick.getRawAxis(C_RIGHTJOYSTICKMOVE);
+			V_LEFTHIGHLOW = leftStick.getRawButton(C_GEARSWITCHBUTTON);
+			V_RIGHTHIGHLOW = rightStick.getRawButton(C_GEARSWITCHBUTTON);
+
+			// reads button to set gear shift boolean to true or false
+			if (V_LEFTHIGHLOW) {
+				shifter.set(true);
+			}
+			if (V_RIGHTHIGHLOW) {
+				shifter.set(false);
+			}
+
+
+			// write gear to smarth dashboard
+			//SmartDashboard.putBoolean("High Gear", SHIFTHIGHLOW);
+
+			// makes the robot drive based off of left and right joystick value
+			tankChassis.tankDrive(V_LEFTMOVE, V_RIGHTMOVE);
 		}
 
-		// write gear to smarth dashboard
-		SmartDashboard.putBoolean("High Gear", SHIFTHIGHLOW);
-
-		// makes the robot drive based off of left and right joystick value
-		tankChassis.tankDrive(LEFTMOVE, RIGHTMOVE);
+		/**
+		 * This function is called periodically during test mode
+		 */
+		
+		  public void testperiodic() {
+		 
+		  }
 	}
-
-	/**
-	 * This function is called periodically during test mode
-	 */
-	/*
-	 * public void testPeriodic() {
-	 * 
-	 * }
-	 */
-
-}
