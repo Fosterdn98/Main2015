@@ -41,11 +41,10 @@ public class Drive {
 		 */
 		boolean LEFTHIGHLOW = false;
 		boolean RIGHTHIGHLOW = false;
-		boolean SHIFTHIGHLOW = false;
+		public static boolean SHIFTHIGHLOW = false;
 
 		// gear box high low sols.
-		Solenoid shifterLeft;
-		Solenoid shifterRight;
+		Solenoid shifter;
 
 		// comprs. setup
 		private Compressor compressor;
@@ -55,8 +54,7 @@ public class Drive {
 		private Joystick rightStick;
 
 		// public static vars.
-		int SHIFTERLEFT = 2;
-		int SHIFTERRIGHT = 3;
+		int SHIFTER = 2;
 		int COMPRESSORPORT = 1;
 		int LEFTSTICKPORT = 1;
 		int RIGHTSTICKPORT = 2;
@@ -91,8 +89,7 @@ public class Drive {
 			tankChassis = new RobotDrive(leftFront, leftBack, rightFront, rightBack);
 
 			// robot sols. init
-			shifterLeft = new Solenoid(SHIFTERLEFT);
-			shifterRight = new Solenoid(SHIFTERRIGHT);
+			shifter = new Solenoid(SHIFTER);
 
 			// comprs. inti
 			compressor = new Compressor(COMPRESSORPORT);
@@ -129,15 +126,13 @@ public class Drive {
 
 			// sets gear shifter on or off
 			if (SHIFTHIGHLOW) {
-				shifterLeft.set(true);
-				shifterRight.set(true);
+				shifter.set(true);
 			} else {
-				shifterLeft.set(false);
-				shifterRight.set(false);
+				shifter.set(false);
 			}
 
 			// write gear to smarth dashboard
-			SmartDashboard.putBoolean("High Gear", SHIFTHIGHLOW);
+			//SmartDashboard.putBoolean("High Gear", SHIFTHIGHLOW);
 
 			// makes the robot drive based off of left and right joystick value
 			tankChassis.tankDrive(LEFTMOVE, RIGHTMOVE);
