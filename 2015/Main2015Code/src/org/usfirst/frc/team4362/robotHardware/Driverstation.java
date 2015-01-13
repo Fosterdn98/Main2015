@@ -2,11 +2,12 @@
  * 
  */
 package org.usfirst.frc.team4362.robotHardware;
-
+import org.usfirst.frc.team4362.robotFunctions.Drive.*;
 //will this this import eventually - import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- * @author Joshua Arking
+ * @author Joshua Arking (int)
+ * @author Dustin (orig)
  *
  */
 /** Objectives and formatting - 
@@ -34,6 +35,6 @@ public class Driverstation {
 	}
 	//driverlog is meant to handle outputting relevant information to the drivers.
 	public void driverlog(){
-		
+		SmartDashboard.putBoolean("High Gear", Drive.SHIFTHIGHLOW);
 	}
 }
