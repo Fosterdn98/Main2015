@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
+import org.usfirst.frc.team4362.robot.commands.Drive;
 import org.usfirst.frc.team4362.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4362.robot.subsystems.ExampleSubsystem;
 
@@ -23,6 +24,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	public static Compressor compressor;
     Command autonomousCommand;
+    private Command drive;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -34,6 +36,7 @@ public class Robot extends IterativeRobot {
 		compressor = new Compressor(RobotMap.C_COMPRESSORPORT);
 		compressor.start();
         autonomousCommand = new ExampleCommand();
+        drive = new Drive();
     }
 	
 	public void disabledPeriodic() {
@@ -57,7 +60,8 @@ public class Robot extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        if (autonomousCommand != null) autonomousCommand.cancel();
+        //if (autonomousCommand != null) autonomousCommand.cancel();
+    	drive.start();
     }
 
     /**
@@ -65,7 +69,7 @@ public class Robot extends IterativeRobot {
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
-
+    	drive.cancel();
     }
 
     /**
@@ -73,6 +77,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+    	 
     }
     
     /**

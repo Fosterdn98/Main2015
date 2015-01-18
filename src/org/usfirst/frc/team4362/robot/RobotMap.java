@@ -1,10 +1,5 @@
 package org.usfirst.frc.team4362.robot;
 
-import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.Talon;
-
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -21,10 +16,13 @@ public class RobotMap {
     // number and the module. For example you with a rangefinder:
     // public static int rangefinderPort = 1;
     // public static int rangefinderModule = 1;
-	public static final int C_LEFTFRONT = 1;
-	public static final int C_LEFTBACK = 3;
+	//Tallon controllers
+	public static final int C_LEFTFRONT = 1; 
+	public static final int C_LEFTBACK = 3; 
 	public static final int C_RIGHTFRONT = 2;
 	public static final int C_RIGHTBACK = 4;
+	//solinoid port number for shifter
 	public static final int C_SHIFTER = 2;
+	//the compressor port number
 	public static final int C_COMPRESSORPORT = 1;
 }

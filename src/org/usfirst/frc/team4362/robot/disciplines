@@ -21,7 +21,7 @@ disciplines:
 	
 		
 	Variable Rules:
-		all static (non code changing variables) should be what they are about and in caps
+		all static (non code changing variables) should be what they are about and in caps please use C_[Var name]
 		all non-static (code changing variables) should be in caps with a V_[Var name]
 		all variables should be inside the RobotMap.java class this is were the variables are for easy access
 		to all variables

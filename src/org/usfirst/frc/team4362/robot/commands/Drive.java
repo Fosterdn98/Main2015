@@ -1,13 +1,9 @@
 package org.usfirst.frc.team4362.robot.commands;
 
-import org.usfirst.frc.team4362.robot.RobotMap;
-import org.usfirst.frc.team4362.robot.subsystems.Chassis;
-
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.command.Command;
 
 
 
