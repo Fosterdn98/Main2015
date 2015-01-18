@@ -1,0 +1,23 @@
+disciplines:
+	versioning setup:
+		w.xyz
+			w = major code changes such as total rearagment of code
+			x = code additions
+			y = minor code changes such as varible additions or number changes
+			z = non-function code changes such as comments
+			
+			THERE WILL BE A FILE FOR THE VERSIONING NUMBER TO BE ADDED TO ALONG WITH A SHORT DESCRIPTION OF WHAT WAS CHANGED
+	gitHub Rules:
+		at the end of meetings on saturdays all branches THAT WORK will be merged to main branch and then uploaded
+		to individual branches
+		
+		if there is a branch that is working properly then it is a group decision as to if we make a tag out of that 
+		branch so that we can revert back
+		
+		your branch is your branch you may do what you wish with it. if you do not thing it will work please do not
+		merge to main
+		
+		YOU MUST COMMITE WELL all commits must have good explinations as to what was changes this is the main base of the whole thing
+	
+		
+	
