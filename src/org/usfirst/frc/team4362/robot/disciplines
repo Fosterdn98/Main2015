@@ -20,4 +20,14 @@ disciplines:
 		YOU MUST COMMITE WELL all commits must have good explinations as to what was changes this is the main base of the whole thing
 	
 		
-	
+	Variable Rules:
+		all static (non code changing variables) should be what they are about and in caps
+		all non-static (code changing variables) should be in caps with a V_[Var name]
+		all variables should be inside the RobotMap.java class this is were the variables are for easy access
+		to all variables
+		PLEASE NAME ALL VARIABLES AS STRAIGHT FORWARD AS POS. (please make the variable names what they are)
+		
+	comments:
+		please comment as well as posible so that anyone can take a look at the code and know what is going on
+		josh will also help with the comments for doxygen so that we can have a visual diagram of what goes on 
+		in the end
