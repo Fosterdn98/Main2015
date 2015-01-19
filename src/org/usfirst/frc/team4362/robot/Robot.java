@@ -12,11 +12,26 @@ import org.usfirst.frc.team4362.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4362.robot.subsystems.ExampleSubsystem;
 
 /**
- * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the IterativeRobot
- * documentation. If you change the name of this class or the package after
- * creating this project, you must also update the manifest file in the resource
- * directory.
+ * Robot extends the IterativeRobot class.
+ *
+ * This class will be laid out such that each init function will schedule the correct commands for use in periodic functions.
+ *
+ * To Do List -- add code as necessary for the function of the robot.
+ * 
+ * robotInit() -- provide for initialization of commands and OI at robot startup.
+ *
+ * init() functions -- each of the following functions is called during it's respective game period:
+ * 
+ *  - autonomousInit()   -- schedules commands to be called during autonomousPeriodic().
+ *  - teleopInit() -- schedules commands to be called during teleopPeriodic().
+ *  - disabledInit() -- schedules commands to be called during disabledPeriodic().
+ *
+ * periodic() functions -- runs the scheduled commands defined in the init functions.
+ *  
+ *  - autonomousPeriodic()   -- runs the commands previously scheduled during autonomousInit.
+ *  - teleopPeriodic() -- runs the commands previously scheduled during teleopInit.
+ *  - disabledPeriodic() -- runs the commands previously scheduled during disabledInit.
+ *   
  */
 public class Robot extends IterativeRobot {
 
@@ -60,7 +75,7 @@ public class Robot extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        //if (autonomousCommand != null) autonomousCommand.cancel();
+        if (autonomousCommand != null) autonomousCommand.cancel();
     	drive.start();
     }
 

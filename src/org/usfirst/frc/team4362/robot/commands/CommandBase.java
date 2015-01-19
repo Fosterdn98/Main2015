@@ -5,7 +5,12 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team4362.robot.OI;
 import org.usfirst.frc.team4362.robot.subsystems.Chassis;
 /**
- *ll
+ * This class will be laid out such that all controllers and buttons can be accessed from a central point.
+ *
+ * To Do List -- add code as necessary for the function of the robot.
+ * 
+ * Defines non-commands (includes subsystems) in a file, so that during the rest of the program they can be referenced. Checks what each files requires and creates an 
+ * instance of each file that can be accessed publicly.
  */
 public abstract class CommandBase extends Command {
 	public static OI oi;

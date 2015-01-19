@@ -4,7 +4,7 @@ package org.usfirst.frc.team4362.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ * This is an example of how subsystems should be made. Not used in code except as a placeholder.
  */
 public class ExampleSubsystem extends Subsystem {
     

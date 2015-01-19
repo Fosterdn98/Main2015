@@ -2,11 +2,10 @@
 package org.usfirst.frc.team4362.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc.team4362.robot.Robot;
 
 /**
- *
+ * This is an example of how commands should be made. Not used in code except as a placeholder.
  */
 public class ExampleCommand extends Command {
 

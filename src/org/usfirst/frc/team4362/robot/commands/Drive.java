@@ -5,12 +5,22 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.buttons.Button;
 
-
-
-
 /**
+ * Drive extends the CommandBase class.
  *
+ * This class will be laid out such that each function can be called as a command.
+ *
+ * To Do List -- add code as necessary for the function of the robot. Move shifting to it's own file.
+ * 
+ * Drive() -- essentially a init for this command. Checks what is required and inits the joysticks.
+ *
+ * initialize() -- initializes driving resources.
+ * execute() -- gets shifter trigger and driving axis positions and sets tankdrive and shifter to those values.
+ * isFinished() -- returns if driving is finished.
+ * end() -- called once if isFinished returns true.
+ * interrupted() -- called if drive's subsystems are required by another command.
  */
+
 public class Drive extends CommandBase {
 	private Joystick leftStick,rightStick;
 	private Button leftTrigger, rightTrigger;
