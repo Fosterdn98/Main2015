@@ -16,7 +16,7 @@ import org.usfirst.frc.team4362.robot.subsystems.ExampleSubsystem;
  *
  * This class will be laid out such that each init function will schedule the correct commands for use in periodic functions.
  *
- * To Do List -- add code as necessary for the function of the robot.
+ * To Do List -- add code as necessary for the function of the robot. Move compressor into it's own command.
  * 
  * robotInit() -- provide for initialization of commands and OI at robot startup.
  *
@@ -35,70 +35,47 @@ import org.usfirst.frc.team4362.robot.subsystems.ExampleSubsystem;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	public static OI oi;
-	public static Compressor compressor;
-    Command autonomousCommand;
-    private Command drive;
+	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem(); /*!< This is an example of how to make a subsystem. Has no purpose. */
+	public static OI oi; /*!< Creates a new OI named oi */
+	public static Compressor compressor; /*!< Creates a new Compressor named compressor */
+    Command autonomousCommand; /*!< Creates a new command named autonomousCommand */
+    private Command drive; /*!< Creates a new private command named drive */
 
-    /**
-     * This function is run when the robot is first started up and should be
-     * used for any initialization code.
-     */
     public void robotInit() {
-		oi = new OI();
-        // instantiate the command used for the autonomous period
-		compressor = new Compressor(RobotMap.C_COMPRESSORPORT);
-		compressor.start();
-        autonomousCommand = new ExampleCommand();
-        drive = new Drive();
+		oi = new OI(); /*!< Sets oi to a new OI from the OI.java file in this same package */
+		compressor = new Compressor(RobotMap.C_COMPRESSORPORT); /*!< Sets compressor to a new Compressor from the WPILib. Needs to be its own command. */
+		compressor.start(); /*!< Starts compressor. */
+        autonomousCommand = new ExampleCommand(); /*!< Sets autonomousCommand to an instance of ExampleCommand. autonomousCommand needs its own command. */
+        drive = new Drive(); /*!< Bind drive to the command type Drive set in the Drive.java file. */
     }
-	
-	public void disabledPeriodic() {
-		Scheduler.getInstance().run();
-	}
-
+    
     public void autonomousInit() {
-        // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
+        if (autonomousCommand != null) autonomousCommand.start(); /*!< Checks if the autonomousCommand has been given. If true, it schedules autonomousCommand.start(). */
     }
 
-    /**
-     * This function is called periodically during autonomous
-     */
     public void autonomousPeriodic() {
-        Scheduler.getInstance().run();
+        Scheduler.getInstance().run(); /*!< Runs commands scheduled in autonomousInit. */
     }
-
+    
     public void teleopInit() {
-		// This makes sure that the autonomous stops running when
-        // teleop starts running. If you want the autonomous to 
-        // continue until interrupted by another command, remove
-        // this line or comment it out.
-        if (autonomousCommand != null) autonomousCommand.cancel();
-    	drive.start();
+        if (autonomousCommand != null) autonomousCommand.cancel();/*!< Checks if the autonomousCommand has been given. If true, it schedules autonomousCommand.cancel(). */
+    	drive.start(); /*!< Schedules drive.start(). */
     }
-
-    /**
-     * This function is called when the disabled button is hit.
-     * You can use it to reset subsystems before shutting down.
-     */
-    public void disabledInit(){
-    	drive.cancel();
-    }
-
-    /**
-     * This function is called periodically during operator control
-     */
+    
     public void teleopPeriodic() {
-        Scheduler.getInstance().run();
+        Scheduler.getInstance().run(); /*!< Runs commands scheduled in teleopInit. */
     	 
     }
     
-    /**
-     * This function is called periodically during test mode
-     */
+    public void disabledInit(){
+    	drive.cancel(); /*!< Schedules drive.cancel(). */
+    }
+    
+	public void disabledPeriodic() {
+		Scheduler.getInstance().run(); /*!< Runs commands scheduled in disabledInit. */
+	}
+    
     public void testPeriodic() {
-        LiveWindow.run();
+        LiveWindow.run(); /*!< Refreshes the numbers output to screen. */
     }
 }

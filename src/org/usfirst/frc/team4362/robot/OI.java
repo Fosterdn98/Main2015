@@ -23,31 +23,31 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 
 public class OI {
-	private Joystick leftStick, rightStick;
-	private Solenoid shifter;
+	private Joystick leftStick, rightStick; /*!< Creates new Joystick leftStick and rightStick. */
+	private Solenoid shifter; /*!< Creates new Solenoid shifter. */
 	public OI(){
-	leftStick = new Joystick(0);
-	rightStick = new Joystick(1);
-	shifter = new Solenoid(RobotMap.C_SHIFTER);
+	leftStick = new Joystick(RobotMap.C_LEFTSTICK); /*!< Sets leftStick to a new Joystick on USB port C_LEFTSTICK. */
+	rightStick = new Joystick(RobotMap.C_RIGHTSTICK); /*!< Sets rightStick to a new Joystick on USB port C_RIGHTSTICK. */
+	shifter = new Solenoid(RobotMap.C_SHIFTER); /*!< Sets shifter to a new Solenoid on CAN address C_SHIFTER. */
 	
 	}
-	Button leftTrigger = new JoystickButton(leftStick, 1);
-	Button rightTrigger = new JoystickButton(rightStick, 1);
+	Button leftTrigger = new JoystickButton(leftStick, RobotMap.C_LEFTTRIGGER); /*!< Sets leftTrigger to a new JoystickButton on button number C_LEFTTRIGGER. */
+	Button rightTrigger = new JoystickButton(rightStick, RobotMap.C_RIGHTTRIGGER); /*!< Sets rightTrigger to a new JoystickButton on button number C_RIGHTTRIGGER. */
 	
 	public Joystick getLeftStick(){
-		return leftStick;
+		return leftStick; /*!< This function returns the left joystick's initialization. */
 	}
 	public Joystick getRightStick(){
-		return rightStick;
+		return rightStick; /*!< This function returns the right joystick's initialization. */
 	}
 	public Button getLeftTigger(){
-		return leftTrigger;
+		return leftTrigger; /*!< This function returns the left trigger's initialization. */
 	}
 	public Button getRightTrigger(){
-		return rightTrigger;
+		return rightTrigger; /*!< This function returns the right trigger's initialization. */
 	}
 	public Solenoid getShifter(){
-		return shifter;
+		return shifter; /*!< This function returns the shifter solenoid's initialization. */
 	}
 	
 }

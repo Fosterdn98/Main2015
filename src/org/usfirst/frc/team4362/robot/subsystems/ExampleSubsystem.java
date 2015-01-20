@@ -8,12 +8,14 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class ExampleSubsystem extends Subsystem {
     
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+	public void exampleCommand(Boolean arguement){ /*!< This command is an example of making a command to control a subsystem. */
+		if(arguement){ /*!< For example, this code checks if boolean arguement is true, then continues if it is. */
+		}
+    }
 
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+    	/*!< This code sets the default command ran when this subsystem is called. */
+        setDefaultCommand(null);
     }
 }
 
