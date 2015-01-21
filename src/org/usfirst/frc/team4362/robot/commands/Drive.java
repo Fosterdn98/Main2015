@@ -46,10 +46,12 @@ public class Drive extends CommandBase {
 
     protected void execute() {
     	if(leftTrigger.get()){ /*!< If left trigger is true (pressed) then continue. */
-    		upShifter.set(true); /*!< Set shifter to true (High gear). */
+    		upShifter.set(false); /*!< Set shifter to true (High gear). */
+    		downShifter.set(true); /*!< Set shifter to false (Low gear). */
     	}
     	if(rightTrigger.get()){ /*!< If right trigger is true (pressed) then continue. */
     		downShifter.set(false); /*!< Set shifter to false (Low gear). */
+    		upShifter.set(true); /*!< Set shifter to true (High gear). */
     	}
     	double left = leftStick.getRawAxis(RobotMap.C_LEFTAXIS); /*!< Sets left to the current position of the left joystick's axis # C_LEFTAXIS. */
     	double right = rightStick.getRawAxis(RobotMap.C_RIGHTAXIS); /*!< Sets right to the current position of the right joystick's axis # C_RIGHTAXIS. */
