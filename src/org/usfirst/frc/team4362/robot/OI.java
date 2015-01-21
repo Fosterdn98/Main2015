@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  *
  * To Do List -- add code as necessary for the function of the robot.
  * 
- * Adds buttons and triggers in a seperate file that is called only when necessary instead of being constantly checked, like axis.
+ * Adds buttons and triggers in a seperate file that is called only when necessary instead of being constantly checked, like axis. Add upShifter and downShifter code.
  * 
  * To create a button or trigger:
  * Joystick stick = new Joystick(port);
@@ -24,12 +24,13 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 public class OI {
 	private Joystick leftStick, rightStick; /*!< Creates new Joystick leftStick and rightStick. */
-	private Solenoid shifter; /*!< Creates new Solenoid shifter. */
+	private Solenoid downShifter; /*!< Creates new Solenoid shifter for shifting down. */
+	private Solenoid upShifter; /*!< Creates new Solenoid shifter for shifter up. */
 	public OI(){
 	leftStick = new Joystick(RobotMap.C_LEFTSTICK); /*!< Sets leftStick to a new Joystick on USB port C_LEFTSTICK. */
 	rightStick = new Joystick(RobotMap.C_RIGHTSTICK); /*!< Sets rightStick to a new Joystick on USB port C_RIGHTSTICK. */
-	shifter = new Solenoid(RobotMap.C_SHIFTER); /*!< Sets shifter to a new Solenoid on CAN address C_SHIFTER. */
-	
+	downShifter = new Solenoid(RobotMap.C_SHIFTERLOW); /*!< Sets low shifter to a new Solenoid on CAN address C_SHIFTERLOW. */
+	upShifter = new Solenoid(RobotMap.C_SHIFTERHIGH); /*!< Sets high shifter to a new Solenoid on CAN address C_SHIFTERHIGH. */
 	}
 	Button leftTrigger = new JoystickButton(leftStick, RobotMap.C_LEFTTRIGGER); /*!< Sets leftTrigger to a new JoystickButton on button number C_LEFTTRIGGER. */
 	Button rightTrigger = new JoystickButton(rightStick, RobotMap.C_RIGHTTRIGGER); /*!< Sets rightTrigger to a new JoystickButton on button number C_RIGHTTRIGGER. */
@@ -46,8 +47,11 @@ public class OI {
 	public Button getRightTrigger(){
 		return rightTrigger; /*!< This function returns the right trigger's initialization. */
 	}
-	public Solenoid getShifter(){
-		return shifter; /*!< This function returns the shifter solenoid's initialization. */
+	public Solenoid getShifterUp(){
+		return upShifter; /*!< This function returns the up shifter solenoid's initialization. */
+	}
+	public Solenoid getShifterDown(){
+		return downShifter; /*!< This function returns the down shifter solenoid's initialization. */
 	}
 	
 }
