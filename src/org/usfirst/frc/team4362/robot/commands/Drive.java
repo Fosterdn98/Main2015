@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 public class Drive extends CommandBase {
 	private Joystick leftStick,rightStick;
 	private Button leftTrigger, rightTrigger;
-	private Solenoid shifter;
+	private Solenoid shifterup, shifterdown;
 	private DriverStation m_ds;
     public Drive() {
         // Use requires() here to declare subsystem dependencies
@@ -24,7 +24,8 @@ public class Drive extends CommandBase {
     	rightStick = oi.getRightStick();
     	leftTrigger = oi.getLeftTigger();
     	rightTrigger = oi.getRightTrigger();
-    	shifter = oi.getShifter();
+    	shifterup = oi.getShifterUp();
+    	shifterdown = oi.getShifterDown();
     	m_ds = DriverStation.getInstance();
     }
 
@@ -36,10 +37,12 @@ public class Drive extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(leftTrigger.get()){
-    		shifter.set(true);
+    		shifterup.set(true);
+    		shifterdown.set(false);
     	}
     	if(rightTrigger.get()){
-    		shifter.set(false);
+    		shifterup.set(false);
+    		shifterdown.set(true);
     	}
     	double left = leftStick.getRawAxis(1);
     	double right = rightStick.getRawAxis(1);

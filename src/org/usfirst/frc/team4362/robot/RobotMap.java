@@ -17,12 +17,13 @@ public class RobotMap {
     // public static int rangefinderPort = 1;
     // public static int rangefinderModule = 1;
 	//Tallon controllers
-	public static final int C_LEFTFRONT = 1; 
-	public static final int C_LEFTBACK = 3; 
-	public static final int C_RIGHTFRONT = 2;
-	public static final int C_RIGHTBACK = 4;
+	public static final int C_LEFTFRONT = 2; 
+	public static final int C_LEFTBACK = 4; 
+	public static final int C_RIGHTFRONT = 1;
+	public static final int C_RIGHTBACK = 3;
 	//solinoid port number for shifter
-	public static final int C_SHIFTER = 2;
+	public static final int C_SHIFTERDOWN = 2;
+	public static final int C_SHIFTERUP = 1;
 	//the compressor port number
 	public static final int C_COMPRESSORPORT = 1;
 }

@@ -37,11 +37,14 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
 	private Joystick leftStick, rightStick;
-	private Solenoid shifter;
+	private Solenoid shifterup, shifterdown;
 	public OI(){
 	leftStick = new Joystick(0);
 	rightStick = new Joystick(1);
-	shifter = new Solenoid(RobotMap.C_SHIFTER);
+	shifterup = new Solenoid(RobotMap.C_SHIFTERUP);
+	shifterdown = new Solenoid(RobotMap.C_SHIFTERDOWN);
+	
+	
 	
 	}
 	Button leftTrigger = new JoystickButton(leftStick, 1);
@@ -59,8 +62,11 @@ public class OI {
 	public Button getRightTrigger(){
 		return rightTrigger;
 	}
-	public Solenoid getShifter(){
-		return shifter;
+	public Solenoid getShifterUp(){
+		return shifterup;
+	}
+	public Solenoid getShifterDown(){
+		return shifterdown;
 	}
 	
 }
