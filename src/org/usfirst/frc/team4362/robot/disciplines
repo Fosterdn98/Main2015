@@ -7,6 +7,10 @@ disciplines:
 			z = non-function code changes such as comments
 			
 			THERE WILL BE A FILE FOR THE VERSIONING NUMBER TO BE ADDED TO ALONG WITH A SHORT DESCRIPTION OF WHAT WAS CHANGED
+			
+			please add the date of the version update at the end of the discription of changes!
+			
+			
 	gitHub Rules:
 		at the end of meetings on saturdays all branches THAT WORK will be merged to main branch and then uploaded
 		to individual branches
@@ -27,7 +31,44 @@ disciplines:
 		to all variables
 		PLEASE NAME ALL VARIABLES AS STRAIGHT FORWARD AS POS. (please make the variable names what they are)
 		
+		
 	comments:
 		please comment as well as posible so that anyone can take a look at the code and know what is going on
 		josh will also help with the comments for doxygen so that we can have a visual diagram of what goes on 
 		in the end
+		
+		
+	Jobs and Todo List:
+		please visit the todo file that is attached to see current progress and what jobs are due by who when and who has done what
+		when you compleat something please change what you compleated in the todo list with your name at the end!!!!!!! this is going to 
+		help poeple who have questions to know who to goto
+		
+		
+	genral team rules:
+		THERE WILL BE NO GAMEING 
+			if you are cought gameing and there are things that need to be done there will be a problem. we do not have enough time to be playing games
+				if you think there is nothing you can do see the todo list this list is were you will find everything that needs to be done. just because your name is not 
+				attached to a job does not mean that you are not allowed to do it. inless it has a W_ in front of it or a D_ you can work on it MINUS AUTON
+				
+		these disiplines are asked to be fallowed they are the guide lines to the programming team. we dont have as much time as you thing [last year the code was not fully done intell 
+		after our first comp]
+		
+		if you have any questions you can ask either josh, dustin, or the person whos name is at then end of the job list
+		
+		YOU MUST USE THE VERSIONING FILE!!!! AND YOU MUST COMMIT PROPERLLY!!!!! THIS IS VERY IMPORTANT!!!!
+		
+		
+		
+	Josh:
+		Josh has decided that this year he is going to fix major error make sure doxygen is working and updated. he is going to make sure the 
+		comments are correct and things are being fallowed
+		
+		he is open for any questions that you have
+		
+		
+	Dustin:
+		Dustin has decided that this year he is going to make sure that things are being layed out corectly people are worling things get done 
+		and every one understands what is going on. he is going to check in with every one and make sure that the versioning chart is updated
+		
+		he is open for any questions you may have
+		
