@@ -2,38 +2,34 @@
 package org.usfirst.frc.team4362.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc.team4362.robot.Robot;
 
 /**
- *
+ * This is an example of how commands should be made. Not used in code except as a placeholder.
  */
 public class ExampleCommand extends Command {
 
     public ExampleCommand() {
-        // Use requires() here to declare subsystem dependencies
-        requires(Robot.exampleSubsystem);
+        requires(Robot.exampleSubsystem); /*!< Checks if Robot.exampleSubsystem exists, and does not run if it is missing. */
     }
 
-    // Called just before this Command runs the first time
     protected void initialize() {
+    	/*!< Code here is ran when ExampleCommand.initialize() is called. */
     }
 
-    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	/*!< Code here is ran when ExampleCommand.execute() is called. */
     }
 
-    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return false; /*!< Returns true when execute will no longer be called. */
     }
 
-    // Called once after isFinished returns true
     protected void end() {
+    	/*!< Code here is ran once after ExampleCommand.isFinished() returns true. */
     }
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
     protected void interrupted() {
+    	/*!< This code is called if another command tries to use the subsystem Robot.exampleSubsystem while this class is active. */
     }
 }
