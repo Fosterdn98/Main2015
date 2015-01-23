@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * Drive extends the CommandBase class.
@@ -24,19 +25,26 @@ import edu.wpi.first.wpilibj.buttons.Button;
  */
 
 public class Drive extends CommandBase {
-	private Joystick leftStick,rightStick; /*!< Creates new Joystick leftStick and rightStick. */
-	private Button leftTrigger, rightTrigger; /*!< Creates new Button leftTrigger and rightTrigger. */
-	private Solenoid upShifter; /*!< Creates new Solenoid shifter. */
-	private Solenoid downShifter; /*!< Creates new Solenoid shifter. */
-	private DriverStation ds; /*!< Creates new DriverStation ds. */
+	Joystick leftStick;
+	Joystick rightStick; /*!< Creates new Joystick leftStick and rightStick. */
+	Button leftTrigger;
+	Button rightTrigger; /*!< Creates new Button leftTrigger and rightTrigger. */
+	Solenoid upShifter; /*!< Creates new Solenoid shifter. */
+	Solenoid downShifter; /*!< Creates new Solenoid shifter. */
+	DriverStation ds; /*!< Creates new DriverStation ds. */
+	boolean left = false;
+	boolean right = true;
     public Drive() {
-    	requires(chassis); /*!< Checks if chassis exists, and does not run if it is missing. */
-    	leftStick = oi.getLeftStick(); /*!< Gets an instance of leftStick from OI.java. */
-    	rightStick = oi.getRightStick(); /*!< Gets an instance of rightStick from OI.java. */
-    	leftTrigger = oi.getLeftTigger(); /*!< Gets an instance of leftTrigger from OI.java. */
-    	rightTrigger = oi.getRightTrigger(); /*!< Gets an instance of rightTrigger from OI.java. */
-    	upShifter = oi.getShifterUp(); /*!< Gets an instance of upShifter from OI.java. */
-    	downShifter = oi.getShifterDown(); /*!< Gets an instance of downShifter from OI.java. */
+    	//requires(chassis); /*!< Checks if chassis exists, and does not run if it is missing. */
+    	//leftStick = oi.getLeftStick(); /*!< Gets an instance of leftStick from OI.java. */
+    	//rightStick = oi.getRightStick(); /*!< Gets an instance of rightStick from OI.java. */
+    	leftStick = new Joystick(0);
+    	rightStick = new Joystick(1);
+    	leftTrigger = new JoystickButton(leftStick, 1); /*!< Gets an instance of leftTrigger from OI.java. */
+    	rightTrigger = new JoystickButton(rightStick, 1); /*!< Gets an instance of rightTrigger from OI.java. */
+    	
+    	upShifter = new Solenoid(0);/*!< Gets an instance of upShifter from OI.java. */
+    	downShifter = new Solenoid(1); /*!< Gets an instance of downShifter from OI.java. */
     	ds = DriverStation.getInstance(); /*!< Gets an instance of the ds from the DriverStation. */
     }
    
@@ -45,16 +53,17 @@ public class Drive extends CommandBase {
     }
 
     protected void execute() {
+    	
     	if(leftTrigger.get()){ /*!< If left trigger is true (pressed) then continue. */
     		upShifter.set(false); /*!< Set shifter to true (High gear). */
     		downShifter.set(true); /*!< Set shifter to false (Low gear). */
     	}
     	if(rightTrigger.get()){ /*!< If right trigger is true (pressed) then continue. */
-    		downShifter.set(false); /*!< Set shifter to false (Low gear). */
     		upShifter.set(true); /*!< Set shifter to true (High gear). */
+    		downShifter.set(false); /*!< Set shifter to false (Low gear). */
     	}
     	double left = leftStick.getRawAxis(RobotMap.C_LEFTAXIS); /*!< Sets left to the current position of the left joystick's axis # C_LEFTAXIS. */
-    	double right = rightStick.getRawAxis(RobotMap.C_RIGHTAXIS); /*!< Sets right to the current position of the right joystick's axis # C_RIGHTAXIS. */
+    	double right = -rightStick.getRawAxis(RobotMap.C_RIGHTAXIS); /*!< Sets right to the current position of the right joystick's axis # C_RIGHTAXIS. */
     	chassis.tankDrive(left, right); /*!< Sets the values of the chassis.tankDrive to the current joystick values. */
     }
 

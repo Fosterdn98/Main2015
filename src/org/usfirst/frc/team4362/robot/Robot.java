@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
+import org.usfirst.frc.team4362.robot.commands.CommandBase;
 import org.usfirst.frc.team4362.robot.commands.Drive;
 import org.usfirst.frc.team4362.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4362.robot.subsystems.ExampleSubsystem;
@@ -42,6 +43,7 @@ public class Robot extends IterativeRobot {
     private Command drive; /*!< Creates a new private command named drive */
 
     public void robotInit() {
+    	CommandBase.init();
 		oi = new OI(); /*!< Sets oi to a new OI from the OI.java file in this same package */
 		compressor = new Compressor(RobotMap.C_COMPRESSORPORT); /*!< Sets compressor to a new Compressor from the WPILib. Needs to be its own command. */
 		compressor.start(); /*!< Starts compressor. */
@@ -58,7 +60,7 @@ public class Robot extends IterativeRobot {
     }
     
     public void teleopInit() {
-        if (autonomousCommand != null) autonomousCommand.cancel();/*!< Checks if the autonomousCommand has been given. If true, it schedules autonomousCommand.cancel(). */
+        //if (autonomousCommand != null) autonomousCommand.cancel();/*!< Checks if the autonomousCommand has been given. If true, it schedules autonomousCommand.cancel(). */
     	drive.start(); /*!< Schedules drive.start(). */
     }
     
@@ -68,7 +70,7 @@ public class Robot extends IterativeRobot {
     }
     
     public void disabledInit(){
-    	drive.cancel(); /*!< Schedules drive.cancel(). */
+    	 /*!< Schedules drive.cancel(). */
     }
     
 	public void disabledPeriodic() {
