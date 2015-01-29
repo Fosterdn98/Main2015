@@ -1,7 +1,7 @@
 package org.usfirst.frc.team4362.robotHardware;
-
-public class SolenoidControl {
 import edu.wpi.first.wpilibj.Solenoid
+public class SolenoidControl {
+
 //solenoid
 Solenoid extend; //extend the pickup arm
 Solenoid retract; //retract the pickup arm
