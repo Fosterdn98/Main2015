@@ -1,10 +1,11 @@
 To-Do:
 	Movment:
-		4 Motors
-			four tallons
-		2 motor encoders (mabey 3)
+		5 Motors
+			five tallons
+		3 motor encoders (mabey 3)
 			left side
 			right side
+			lift
 			mabey for lifter arm
 		left calibrated turn command
 		right calibrated turn command
@@ -28,7 +29,7 @@ To-Do:
 		1 - 2 cameras
 			fron side and back side camera fixed positions not known if using yet
 		
-	can diag.
+	can diagnotic.
 		all the motors
 		
 	
