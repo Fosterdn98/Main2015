@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc.team4362.robot.OI;
 import org.usfirst.frc.team4362.robot.subsystems.Chassis;
+import org.usfirst.frc.team4362.robot.subsystems.Sols;
 /**
  * This class will be laid out such that all controllers and buttons can be accessed from a central point.
  *
@@ -15,7 +16,7 @@ import org.usfirst.frc.team4362.robot.subsystems.Chassis;
 public abstract class CommandBase extends Command {
 	public static OI oi; /*!< Creates a new OI named oi */
 	public static Chassis chassis; /*!< Creates a new Chassis named chassis */
-	
+	public static Sols Sols;
     public CommandBase() { /*!< Uses requires() to declare subsystem dependencies. */
     	super(); /*!< Checks if super() exists, and does not run if it is missing. */
     }
@@ -24,6 +25,7 @@ public abstract class CommandBase extends Command {
     public static void  init() {
     	oi = new OI(); /*!< Sets oi to a new OI from the OI.java file. */
     	chassis = new Chassis(); /*!< Sets chassis to a new Chassis from the Chassis.java file. */
+    	Sols = new Sols();
     }
 
     public CommandBase(String name){

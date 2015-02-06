@@ -2,11 +2,14 @@ package org.usfirst.frc.team4362.robot.commands;
 
 import org.usfirst.frc.team4362.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * Drive extends the CommandBase class.
@@ -27,11 +30,12 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class Drive extends CommandBase {
 	Joystick leftStick;
 	Joystick rightStick; /*!< Creates new Joystick leftStick and rightStick. */
+	Joystick controller;
 	Button leftTrigger;
 	Button rightTrigger; /*!< Creates new Button leftTrigger and rightTrigger. */
-	Solenoid upShifter; /*!< Creates new Solenoid shifter. */
-	Solenoid downShifter; /*!< Creates new Solenoid shifter. */
+	
 	DriverStation ds; /*!< Creates new DriverStation ds. */
+	Encoder leftEncoder, rightEncoder;
 	boolean left = false;
 	boolean right = true;
     public Drive() {
@@ -40,28 +44,30 @@ public class Drive extends CommandBase {
     	//rightStick = oi.getRightStick(); /*!< Gets an instance of rightStick from OI.java. */
     	leftStick = new Joystick(0);
     	rightStick = new Joystick(1);
+    	controller = new Joystick(2);
     	leftTrigger = new JoystickButton(leftStick, 1); /*!< Gets an instance of leftTrigger from OI.java. */
     	rightTrigger = new JoystickButton(rightStick, 1); /*!< Gets an instance of rightTrigger from OI.java. */
-    	
-    	upShifter = new Solenoid(0);/*!< Gets an instance of upShifter from OI.java. */
-    	downShifter = new Solenoid(1); /*!< Gets an instance of downShifter from OI.java. */
+    	leftEncoder = new Encoder(0,1,true);
+    	rightEncoder = new Encoder(2,3,false);
     	ds = DriverStation.getInstance(); /*!< Gets an instance of the ds from the DriverStation. */
     }
    
     protected void initialize() {
     	chassis.tankDrive(0, 0); /*!< Sets the speed to zero when initialized. */
+    	leftEncoder.reset();
+    	rightEncoder.reset();
+    	leftEncoder.setDistancePerPulse(.075398224);
+    	rightEncoder.setDistancePerPulse(.075398224);
     }
-
+    
     protected void execute() {
+    	SmartDashboard.putNumber("Left Shaft", leftEncoder.getDistance());
+    	SmartDashboard.putNumber("Right Shaft", rightEncoder.getDistance());
+    	SmartDashboard.putNumber("Left Speed FPS", leftEncoder.getRate()/12);
+    	SmartDashboard.putNumber("Right Speed FPS", rightEncoder.getRate()/12);
     	
-    	if(leftTrigger.get()){ /*!< If left trigger is true (pressed) then continue. */
-    		upShifter.set(false); /*!< Set shifter to true (High gear). */
-    		downShifter.set(true); /*!< Set shifter to false (Low gear). */
-    	}
-    	if(rightTrigger.get()){ /*!< If right trigger is true (pressed) then continue. */
-    		upShifter.set(true); /*!< Set shifter to true (High gear). */
-    		downShifter.set(false); /*!< Set shifter to false (Low gear). */
-    	}
+    	leftTrigger.whenPressed(new LargeShiftUp());
+    	rightTrigger.whenPressed(new LargeShiftDown());
     	double left = leftStick.getRawAxis(RobotMap.C_LEFTAXIS); /*!< Sets left to the current position of the left joystick's axis # C_LEFTAXIS. */
     	double right = -rightStick.getRawAxis(RobotMap.C_RIGHTAXIS); /*!< Sets right to the current position of the right joystick's axis # C_RIGHTAXIS. */
     	chassis.tankDrive(left, right); /*!< Sets the values of the chassis.tankDrive to the current joystick values. */

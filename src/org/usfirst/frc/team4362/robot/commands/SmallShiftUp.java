@@ -1,0 +1,42 @@
+package org.usfirst.frc.team4362.robot.commands;
+
+import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.command.Command;
+
+/**
+ *
+ */
+public class SmallShiftUp extends Command {
+	static Solenoid SmallUp;
+	static Solenoid SmallDown;
+    public SmallShiftUp() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+    	SmallUp = new Solenoid(2);
+    	SmallDown = new Solenoid(3);
+    }
+
+    // Called just before this Command runs the first time
+    protected void initialize() {
+    }
+
+    // Called repeatedly when this Command is scheduled to run
+    protected void execute() {
+    	SmallUp.set(true);
+    	SmallDown.set(false);
+    }
+
+    // Make this return true when this Command no longer needs to run execute()
+    protected boolean isFinished() {
+        return false;
+    }
+
+    // Called once after isFinished returns true
+    protected void end() {
+    }
+
+    // Called when another command which requires one or more of the same
+    // subsystems is scheduled to run
+    protected void interrupted() {
+    }
+}

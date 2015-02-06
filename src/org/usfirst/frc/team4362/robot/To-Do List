@@ -1,0 +1,55 @@
+To-Do:
+	Movment:
+		4 Motors
+			four tallons
+		2 motor encoders (mabey 3)
+			left side
+			right side
+			mabey for lifter arm
+		left calibrated turn command
+		right calibrated turn command
+	Sols:
+		6 sol switchs
+			lift creats x2
+			small lifter x2
+			gipper x2
+			
+		
+	limit switch:
+		4 switches
+			top lift switch
+			bottom lift switch
+			position left right side
+	
+	Human player lights:
+		buttons on one of the four contorlers
+		
+	camera (mabey not even being used):
+		1 - 2 cameras
+			fron side and back side camera fixed positions not known if using yet
+		
+	can diag.
+		all the motors
+		
+	
+	smart dashboard
+		motor speed
+		encoder lengths
+		sol fire
+		booleans
+		
+	
+	controllers :
+		trigger (container up down motor):
+			right = up
+			left = down
+		bumpers (tote lift):
+			left = down
+			right = up
+		y (carry height)
+		x (down)
+		a (green light)
+		b (red light)
+		
+	
+	

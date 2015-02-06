@@ -34,7 +34,6 @@ public class OI {
 	}
 	Button leftTrigger = new JoystickButton(leftStick, RobotMap.C_LEFTTRIGGER); /*!< Sets leftTrigger to a new JoystickButton on button number C_LEFTTRIGGER. */
 	Button rightTrigger = new JoystickButton(rightStick, RobotMap.C_RIGHTTRIGGER); /*!< Sets rightTrigger to a new JoystickButton on button number C_RIGHTTRIGGER. */
-	
 	public Joystick getLeftStick(){
 		return leftStick; /*!< This function returns the left joystick's initialization. */
 	}
@@ -53,7 +52,7 @@ public class OI {
 	public Solenoid getShifterDown(){
 		return downShifter; /*!< This function returns the down shifter solenoid's initialization. */
 	}
-	
+
 }
 
 
