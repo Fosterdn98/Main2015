@@ -24,6 +24,8 @@ public class AutonDrive extends Subsystem {
 	rightEncoder = new Encoder(2,3,false);
 	leftEncoder.setDistancePerPulse(RobotMap.DistancePerPulse);
 	rightEncoder.setDistancePerPulse(RobotMap.DistancePerPulse);
+	leftEncoder.reset();
+	rightEncoder.reset();
 	}
 	public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -32,6 +34,18 @@ public class AutonDrive extends Subsystem {
     }
     public void AutonDrive(double speed, double move){
     	if(leftEncoder.getDistance() != move && rightEncoder.getDistance() != move ){
+    		if(leftEncoder.getDistance() != rightEncoder.getDistance()){
+    			leftFront.set(speed); /*!< Sets the leftFront Talon to the value of arguement left. */
+            	leftBack.set(speed); /*!< Sets the leftBack Talon to the value of arguement left. */
+            	rightFront.set(0); /*!< Sets the rightFront Talon to the value of arguement right. */
+            	rightBack.set(0); /*!< Sets the rightBack Talon to the value of arguement right. */
+    		}
+    		if(rightEncoder.getDistance() != leftEncoder.getDistance()){
+    			leftFront.set(0); /*!< Sets the leftFront Talon to the value of arguement left. */
+            	leftBack.set(0); /*!< Sets the leftBack Talon to the value of arguement left. */
+            	rightFront.set(speed); /*!< Sets the rightFront Talon to the value of arguement right. */
+            	rightBack.set(speed); /*!< Sets the rightBack Talon to the value of arguement right. */
+    		}
     		leftFront.set(speed); /*!< Sets the leftFront Talon to the value of arguement left. */
         	leftBack.set(speed); /*!< Sets the leftBack Talon to the value of arguement left. */
         	rightFront.set(speed); /*!< Sets the rightFront Talon to the value of arguement right. */
