@@ -20,5 +20,8 @@ public class RobotMap {
 	public static final int C_RIGHTAXIS = 1; /*!< Constant value for the right joysticks's y-axis. */
 	public static final int C_LEFTTRIGGER = 1; /*!< Constant value for the left joysticks's trigger number. */
 	public static final int C_RIGHTTRIGGER = 1; /*!< Constant value for the right joysticks's trigger number. */
-	
+	//6*3.14159 = 18.84954 |||| 18.84954 / 250 = .075398224 |||| this is the six inch wheel cal for encoders to read 1 inch per one distance
+	//public static final double DistancePerPulse = .075398224; //six inch wheel cal.
+	//4*3.14159 = 12.56636 |||| 12.56636 / 250 = 0.05026544 |||| this is the four inch wheel cal for encoders to read 1 inch per one distance 
+	public static final double DistancePerPulse = .05026544; //four inch wheel cal.
 }
