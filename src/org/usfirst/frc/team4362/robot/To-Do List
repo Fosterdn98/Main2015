@@ -1,13 +1,13 @@
 Chassis – Dustin, Josh – February 14
-	Tank drive 
+	Tank drive (done)
 	Drive
 		Read encoders
 		Degree of turn
 	Turning
 		Read  encoders
 		Degree of turn
-	Controls / I/O – Ethan, John, Garrett – basic init by Saturday  at 10
-		Joystick left + Right
+	Controls / I/O – Ethan, Garrett – basic init by Saturday  at 10
+		Joystick left + Right (done)
 		Axis 1
 		Xbox controller
 		Triggers
@@ -24,13 +24,13 @@ Chassis – Dustin, Josh – February 14
 		R3 – grab
 		R4 – open (release)
 	Totes – John, Garrett – Tuesday end of day
-		Engage tote
-		Full lift
-		Carry
+		Engage tote (done - button)
+		Full lift (done - button)
+		Carry (done - button)
 	Containers – Josh, Ethan – end of this saturday
-		Grab
-		Release
-		Lift
+		Grab  (done - button)
+		Release (done-button)
+		Lift 
 		Lower
 	Diagnostics – Josh, Dustin – bag day
 		CAN bus
