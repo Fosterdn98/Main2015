@@ -1,56 +1,52 @@
-To-Do:
-	Movment:
-		5 Motors
-			five tallons
-		3 motor encoders (mabey 3)
-			left side
-			right side
-			lift
-			mabey for lifter arm
-		left calibrated turn command
-		right calibrated turn command
-	Sols:
-		6 sol switchs
-			lift creats x2
-			small lifter x2
-			gipper x2
-			
+Chassis – Dustin, Josh – February 14
+	Tank drive 
+	Drive
+		Read encoders
+		Degree of turn
+	Turning
+		Read  encoders
+		Degree of turn
+	Controls / I/O – Ethan, John, Garrett – basic init by Saturday  at 10
+		Joystick left + Right
+		Axis 1
+		Xbox controller
+		Triggers
+			Right – up container lift
+			Left – down container lift
+		Bumper
+			Right  - up tote lift
+				Left – down tote lift
+		Buttons
+			X – down tote
+			Y – Carry height tote
+			A – Greenswitch on command
+			B – Redswitch on command
+		R3 – grab
+		R4 – open (release)
+	Totes – John, Garrett – Tuesday end of day
+		Engage tote
+		Full lift
+		Carry
+	Containers – Josh, Ethan – end of this saturday
+		Grab
+		Release
+		Lift
+		Lower
+	Diagnostics – Josh, Dustin – bag day
+		CAN bus
+		Device
+		Self-test
+			Power Usage
+		Smart dashboard
+			Motor controllers
+			Variable movement
+			Camera (Bandwidth management)
 		
-	limit switch:
-		4 switches
-			top lift switch
-			bottom lift switch
-			position left right side
-	
-	Human player lights:
-		buttons on one of the four contorlers
-		
-	camera (mabey not even being used):
-		1 - 2 cameras
-			fron side and back side camera fixed positions not known if using yet
-		
-	can diagnotic.
-		all the motors
-		
-	
-	smart dashboard
-		motor speed
-		encoder lengths
-		sol fire
-		booleans
-		
-	
-	controllers :
-		trigger (container up down motor):
-			right = up
-			left = down
-		bumpers (tote lift):
-			left = down
-			right = up
-		y (carry height)
-		x (down)
-		a (green light)
-		b (red light)
 		
 	
 	
+	
+	
+	
+	
+		

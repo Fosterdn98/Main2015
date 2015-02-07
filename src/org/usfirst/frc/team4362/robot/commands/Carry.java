@@ -6,10 +6,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class SmallShiftDown extends Command {
+public class Carry extends Command {
 	static Solenoid SmallUp;
 	static Solenoid SmallDown;
-    public SmallShiftDown() {
+    public Carry() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	SmallUp = new Solenoid(2);
@@ -22,8 +22,8 @@ public class SmallShiftDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	SmallUp.set(false);
-    	SmallDown.set(true);
+    	SmallUp.set(true);
+    	SmallDown.set(false);
     }
 
     // Make this return true when this Command no longer needs to run execute()

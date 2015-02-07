@@ -6,25 +6,24 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class LargeShiftDown extends CommandBase {
-	static Solenoid LargeUp; /*!< Creates new Solenoid shifter. */
-	static Solenoid LargeDown; /*!< Creates new Solenoid shifter. */
-    public LargeShiftDown() {
+public class Down extends Command {
+	static Solenoid SmallUp;
+	static Solenoid SmallDown;
+    public Down() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	LargeUp = new Solenoid(0);/*!< Gets an instance of upShifter from OI.java. */
-    	LargeDown = new Solenoid(1); /*!< Gets an instance of downShifter from OI.java. */
+    	SmallUp = new Solenoid(2);
+    	SmallDown = new Solenoid(3);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	this.execute();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	LargeUp.set(false);
-    	LargeDown.set(true);
+    	SmallUp.set(false);
+    	SmallDown.set(true);
     }
 
     // Make this return true when this Command no longer needs to run execute()

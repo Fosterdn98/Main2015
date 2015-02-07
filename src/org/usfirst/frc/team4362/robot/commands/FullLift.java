@@ -6,10 +6,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class LargeShiftUp extends CommandBase {
+public class FullLift extends CommandBase {
 	static Solenoid LargeUp; /*!< Creates new Solenoid shifter. */
 	static Solenoid LargeDown; /*!< Creates new Solenoid shifter. */
-    public LargeShiftUp() {
+    public FullLift() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	LargeUp = new Solenoid(0);/*!< Gets an instance of upShifter from OI.java. */

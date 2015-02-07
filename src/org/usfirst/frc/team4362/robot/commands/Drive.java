@@ -66,8 +66,8 @@ public class Drive extends CommandBase {
     	SmartDashboard.putNumber("Left Speed FPS", leftEncoder.getRate()/12);
     	SmartDashboard.putNumber("Right Speed FPS", rightEncoder.getRate()/12);
     	
-    	leftTrigger.whenPressed(new LargeShiftUp());
-    	rightTrigger.whenPressed(new LargeShiftDown());
+    	leftTrigger.whenPressed(new FullLift());
+    	rightTrigger.whenPressed(new EngageTote());
     	double left = leftStick.getRawAxis(RobotMap.C_LEFTAXIS); /*!< Sets left to the current position of the left joystick's axis # C_LEFTAXIS. */
     	double right = -rightStick.getRawAxis(RobotMap.C_RIGHTAXIS); /*!< Sets right to the current position of the right joystick's axis # C_RIGHTAXIS. */
     	chassis.tankDrive(left, right); /*!< Sets the values of the chassis.tankDrive to the current joystick values. */
