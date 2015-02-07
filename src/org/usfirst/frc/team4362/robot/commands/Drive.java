@@ -31,8 +31,7 @@ public class Drive extends CommandBase {
 	Joystick leftStick;
 	Joystick rightStick; /*!< Creates new Joystick leftStick and rightStick. */
 	Joystick controller;
-	Button leftTrigger;
-	Button rightTrigger; /*!< Creates new Button leftTrigger and rightTrigger. */
+	Button left_Bumper, A_Button, B_Button,X_Button,Y_Button,Back_Button,Start_Button, right_Bumper; /*!< Creates new Button leftTrigger and rightTrigger. */
 	
 	DriverStation ds; /*!< Creates new DriverStation ds. */
 	Encoder leftEncoder, rightEncoder;
@@ -45,8 +44,15 @@ public class Drive extends CommandBase {
     	leftStick = new Joystick(0);
     	rightStick = new Joystick(1);
     	controller = new Joystick(2);
-    	leftTrigger = new JoystickButton(leftStick, 1); /*!< Gets an instance of leftTrigger from OI.java. */
-    	rightTrigger = new JoystickButton(rightStick, 1); /*!< Gets an instance of rightTrigger from OI.java. */
+    	//button var. name = new JoystickButton(contoller name, button number)
+    	A_Button = new JoystickButton(controller, 1);
+    	B_Button = new JoystickButton(controller, 2);
+    	X_Button = new JoystickButton(controller, 3);
+    	Y_Button = new JoystickButton(controller, 4);
+    	left_Bumper = new JoystickButton(controller, 5); /*!< Gets an instance of leftTrigger from OI.java. */
+    	right_Bumper = new JoystickButton(controller, 6); /*!< Gets an instance of rightTrigger from OI.java. */
+    	Back_Button = new JoystickButton(controller, 7);
+    	Start_Button = new JoystickButton(controller, 8);
     	leftEncoder = new Encoder(0,1,true);
     	rightEncoder = new Encoder(2,3,false);
     	ds = DriverStation.getInstance(); /*!< Gets an instance of the ds from the DriverStation. */
@@ -66,8 +72,8 @@ public class Drive extends CommandBase {
     	SmartDashboard.putNumber("Left Speed FPS", leftEncoder.getRate()/12);
     	SmartDashboard.putNumber("Right Speed FPS", rightEncoder.getRate()/12);
     	
-    	leftTrigger.whenPressed(new FullLift());
-    	rightTrigger.whenPressed(new EngageTote());
+    	left_Bumper.whenPressed(new FullLift());
+    	right_Bumper.whenPressed(new EngageTote());
     	double left = leftStick.getRawAxis(RobotMap.C_LEFTAXIS); /*!< Sets left to the current position of the left joystick's axis # C_LEFTAXIS. */
     	double right = -rightStick.getRawAxis(RobotMap.C_RIGHTAXIS); /*!< Sets right to the current position of the right joystick's axis # C_RIGHTAXIS. */
     	chassis.tankDrive(left, right); /*!< Sets the values of the chassis.tankDrive to the current joystick values. */

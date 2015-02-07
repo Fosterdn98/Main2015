@@ -37,12 +37,12 @@ public class AutonDrive extends Subsystem {
     		if(leftEncoder.getDistance() != rightEncoder.getDistance()){
     			leftFront.set(speed); /*!< Sets the leftFront Talon to the value of arguement left. */
             	leftBack.set(speed); /*!< Sets the leftBack Talon to the value of arguement left. */
-            	rightFront.set(0); /*!< Sets the rightFront Talon to the value of arguement right. */
-            	rightBack.set(0); /*!< Sets the rightBack Talon to the value of arguement right. */
+            	rightFront.set(speed - 10); /*!< Sets the rightFront Talon to the value of arguement right. */
+            	rightBack.set(speed - 10); /*!< Sets the rightBack Talon to the value of arguement right. */
     		}
     		if(rightEncoder.getDistance() != leftEncoder.getDistance()){
-    			leftFront.set(0); /*!< Sets the leftFront Talon to the value of arguement left. */
-            	leftBack.set(0); /*!< Sets the leftBack Talon to the value of arguement left. */
+    			leftFront.set(speed - 10); /*!< Sets the leftFront Talon to the value of arguement left. */
+            	leftBack.set(speed - 10); /*!< Sets the leftBack Talon to the value of arguement left. */
             	rightFront.set(speed); /*!< Sets the rightFront Talon to the value of arguement right. */
             	rightBack.set(speed); /*!< Sets the rightBack Talon to the value of arguement right. */
     		}
