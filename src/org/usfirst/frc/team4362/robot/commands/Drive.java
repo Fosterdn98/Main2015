@@ -34,7 +34,7 @@ public class Drive extends CommandBase {
 	Button left_Bumper, A_Button, B_Button,X_Button,Y_Button,Back_Button,Start_Button, right_Bumper; /*!< Creates new Button leftTrigger and rightTrigger. */
 	
 	DriverStation ds; /*!< Creates new DriverStation ds. */
-	Encoder leftEncoder, rightEncoder;
+	//Encoder leftEncoder, rightEncoder;
 	boolean left = false;
 	boolean right = true;
     public Drive() {
@@ -53,24 +53,24 @@ public class Drive extends CommandBase {
     	right_Bumper = new JoystickButton(controller, 6); /*!< Gets an instance of rightTrigger from OI.java. */
     	Back_Button = new JoystickButton(controller, 7);
     	Start_Button = new JoystickButton(controller, 8);
-    	leftEncoder = new Encoder(0,1,true);
-    	rightEncoder = new Encoder(2,3,false);
+    	//leftEncoder = new Encoder(0,1,true);
+    	//rightEncoder = new Encoder(2,3,false);
     	ds = DriverStation.getInstance(); /*!< Gets an instance of the ds from the DriverStation. */
     }
    
     protected void initialize() {
     	chassis.tankDrive(0, 0); /*!< Sets the speed to zero when initialized. */
-    	leftEncoder.reset();
-    	rightEncoder.reset();
-    	leftEncoder.setDistancePerPulse(.075398224);
-    	rightEncoder.setDistancePerPulse(.075398224);
+    	//leftEncoder.reset();
+    	//rightEncoder.reset();
+    	//leftEncoder.setDistancePerPulse(.075398224);
+    	//rightEncoder.setDistancePerPulse(.075398224);
     }
     
     protected void execute() {
-    	SmartDashboard.putNumber("Left Shaft", leftEncoder.getDistance());
-    	SmartDashboard.putNumber("Right Shaft", rightEncoder.getDistance());
-    	SmartDashboard.putNumber("Left Speed FPS", leftEncoder.getRate()/12);
-    	SmartDashboard.putNumber("Right Speed FPS", rightEncoder.getRate()/12);
+    	//SmartDashboard.putNumber("Left Shaft", leftEncoder.getDistance());
+    	//SmartDashboard.putNumber("Right Shaft", rightEncoder.getDistance());
+    	//SmartDashboard.putNumber("Left Speed FPS", leftEncoder.getRate()/12);
+    	//SmartDashboard.putNumber("Right Speed FPS", rightEncoder.getRate()/12);
     	
     	left_Bumper.whenPressed(new FullLift());
     	right_Bumper.whenPressed(new EngageTote());

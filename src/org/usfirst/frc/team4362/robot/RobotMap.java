@@ -24,4 +24,7 @@ public class RobotMap {
 	//public static final double DistancePerPulse = .075398224; //six inch wheel cal.
 	//4*3.14159 = 12.56636 |||| 12.56636 / 250 = 0.05026544 |||| this is the four inch wheel cal for encoders to read 1 inch per one distance 
 	public static final double DistancePerPulse = .05026544; //four inch wheel cal.
+	public static final int C_QUALITY = 50; /*!< Constant value for quality in new instances of CameraServer */
+	public static final String C_CAM1 = "cam0"; /*!< Constant value for the first USB camera */
+	public static final String C_CAM2 = "cam1"; /*!< Constant value for the second USB camera */
 }

@@ -5,12 +5,15 @@ import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
+import org.usfirst.frc.team4362.robot.commands.Camera;
 import org.usfirst.frc.team4362.robot.commands.CommandBase;
 import org.usfirst.frc.team4362.robot.commands.Drive;
 import org.usfirst.frc.team4362.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4362.robot.subsystems.ExampleSubsystem;
+import org.usfirst.frc.team4362.robot.subsystems.Vision;
 
 /**
  * Robot extends the IterativeRobot class.
@@ -37,10 +40,12 @@ import org.usfirst.frc.team4362.robot.subsystems.ExampleSubsystem;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem(); /*!< This is an example of how to make a subsystem. Has no purpose. */
+	public static final Subsystem Vision = new Vision();
 	public static OI oi; /*!< Creates a new OI named oi */
 	public static Compressor compressor; /*!< Creates a new Compressor named compressor */
     Command autonomousCommand; /*!< Creates a new command named autonomousCommand */
     private Command drive; /*!< Creates a new private command named drive */
+    private Command camera;
 
     public void robotInit() {
     	CommandBase.init();
@@ -49,6 +54,7 @@ public class Robot extends IterativeRobot {
 		compressor.start(); /*!< Starts compressor. */
         autonomousCommand = new ExampleCommand(); /*!< Sets autonomousCommand to an instance of ExampleCommand. autonomousCommand needs its own command. */
         drive = new Drive(); /*!< Bind drive to the command type Drive set in the Drive.java file. */
+        camera = new Camera();
     }
     
     public void autonomousInit() {
@@ -62,6 +68,8 @@ public class Robot extends IterativeRobot {
     public void teleopInit() {
         //if (autonomousCommand != null) autonomousCommand.cancel();/*!< Checks if the autonomousCommand has been given. If true, it schedules autonomousCommand.cancel(). */
     	drive.start(); /*!< Schedules drive.start(). */
+    	camera.start();
+    	
     }
     
     public void teleopPeriodic() {
